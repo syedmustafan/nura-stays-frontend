@@ -115,7 +115,7 @@ const FAQPage = () => {
   return (
     <Box>
       {/* Hero */}
-      <Box sx={{ py: { xs: 6, md: 8 }, background: 'linear-gradient(135deg, #FFF8F3 0%, #F5E6D3 100%)', textAlign: 'center' }}>
+      <Box sx={{ py: { xs: 6, md: 8 }, background: 'linear-gradient(135deg, #FFFFFF 0%, #F4ECE3 100%)', textAlign: 'center' }}>
         <Container maxWidth="md">
           <Typography variant="h1" sx={{ mb: 2, fontSize: { xs: '2rem', md: '3rem' } }}>
             Frequently Asked Questions
@@ -183,8 +183,8 @@ const FAQPage = () => {
                     key={i}
                     sx={{
                       mb: 1,
-                      bgcolor: '#FEFCF9',
-                      border: '1px solid rgba(0,0,0,0.04)',
+                      bgcolor: '#FFFFFF',
+                      border: '1px solid #E5E5E5',
                       '&::before': { display: 'none' },
                       borderRadius: '8px !important',
                       '&:first-of-type': { borderRadius: '8px !important' },
@@ -210,7 +210,7 @@ const FAQPage = () => {
         </Box>
 
         {/* CTA */}
-        <Box sx={{ textAlign: 'center', mt: 6, py: 6, bgcolor: '#FAF8F5', borderRadius: 3 }}>
+        <Box sx={{ textAlign: 'center', mt: 6, py: 6, bgcolor: '#F4ECE3', borderRadius: 3 }}>
           <Typography variant="h5" sx={{ mb: 2, fontWeight: 700 }}>
             Still have questions?
           </Typography>

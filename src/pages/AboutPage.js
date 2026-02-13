@@ -34,7 +34,7 @@ const AboutPage = () => {
       <Box
         sx={{
           py: { xs: 8, md: 12 },
-          background: 'linear-gradient(135deg, #FFF8F3 0%, #F5E6D3 100%)',
+          background: 'linear-gradient(135deg, #FFFFFF 0%, #F4ECE3 100%)',
           textAlign: 'center',
         }}
       >
@@ -107,7 +107,7 @@ const AboutPage = () => {
       </Box>
 
       {/* What We Offer */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#FAF8F5' }}>
+      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#F7F7F7' }}>
         <Container maxWidth="lg">
           <SectionTitle
             title="What We Offer"
@@ -177,7 +177,7 @@ const AboutPage = () => {
       </Box>
 
       {/* Values */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#FAF8F5' }}>
+      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#F4ECE3' }}>
         <Container maxWidth="lg">
           <SectionTitle
             title="Our Values"
@@ -206,7 +206,7 @@ const AboutPage = () => {
         sx={{
           py: { xs: 8, md: 10 },
           textAlign: 'center',
-          background: 'linear-gradient(135deg, #FF6B35 0%, #F77F00 100%)',
+          background: 'linear-gradient(135deg, #1F1F1F 0%, #2A2A2A 100%)',
           color: '#fff',
         }}
       >
@@ -224,7 +224,7 @@ const AboutPage = () => {
               variant="contained"
               size="large"
               endIcon={<ArrowForward />}
-              sx={{ bgcolor: '#fff', color: 'primary.main', '&:hover': { bgcolor: 'rgba(255,255,255,0.9)' } }}
+              sx={{ bgcolor: '#C6A75E', color: '#fff', '&:hover': { bgcolor: '#A98A43' } }}
             >
               View Properties
             </Button>

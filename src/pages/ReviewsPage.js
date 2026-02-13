@@ -49,7 +49,7 @@ const ReviewsPage = () => {
   return (
     <Box>
       {/* Hero */}
-      <Box sx={{ py: { xs: 6, md: 8 }, background: 'linear-gradient(135deg, #FFF8F3 0%, #F5E6D3 100%)', textAlign: 'center' }}>
+      <Box sx={{ py: { xs: 6, md: 8 }, background: 'linear-gradient(135deg, #FFFFFF 0%, #F4ECE3 100%)', textAlign: 'center' }}>
         <Container maxWidth="md">
           <Typography variant="h1" sx={{ mb: 2, fontSize: { xs: '2rem', md: '3rem' } }}>
             Guest Reviews
@@ -63,7 +63,7 @@ const ReviewsPage = () => {
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
         {/* Overall Stats */}
         {stats && (
-          <Card sx={{ p: { xs: 3, md: 4 }, mb: 5, bgcolor: '#FEFCF9', border: '1px solid rgba(0,0,0,0.04)' }}>
+          <Card sx={{ p: { xs: 3, md: 4 }, mb: 5, bgcolor: '#F7F7F7', border: '1px solid #EAEAEA' }}>
             <Grid container spacing={4} alignItems="center">
               <Grid item xs={12} md={4} sx={{ textAlign: 'center' }}>
                 <Typography variant="h2" sx={{ fontWeight: 800, color: 'primary.main', mb: 1 }}>
@@ -82,7 +82,7 @@ const ReviewsPage = () => {
                     <Box key={star} sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1 }}>
                       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, minWidth: 50 }}>
                         <Typography variant="body2" sx={{ fontWeight: 600 }}>{star}</Typography>
-                        <Star sx={{ fontSize: 16, color: '#FFB400' }} />
+                        <Star sx={{ fontSize: 16, color: '#C6A75E' }} />
                       </Box>
                       <LinearProgress
                         variant="determinate"
@@ -93,7 +93,7 @@ const ReviewsPage = () => {
                           borderRadius: 4,
                           bgcolor: 'rgba(0,0,0,0.06)',
                           '& .MuiLinearProgress-bar': {
-                            bgcolor: '#FFB400',
+                            bgcolor: '#C6A75E',
                             borderRadius: 4,
                           },
                         }}
@@ -160,7 +160,7 @@ const ReviewsPage = () => {
                           width: 44,
                           height: 44,
                           borderRadius: '50%',
-                          background: 'linear-gradient(135deg, #FF6B35 0%, #D4AF37 100%)',
+                          background: 'linear-gradient(135deg, #C6A75E 0%, #A98A43 100%)',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',

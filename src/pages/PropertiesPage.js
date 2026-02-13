@@ -85,7 +85,7 @@ const PropertiesPage = () => {
       <Box
         sx={{
           py: { xs: 6, md: 8 },
-          background: 'linear-gradient(135deg, #FFF8F3 0%, #F5E6D3 100%)',
+          background: 'linear-gradient(135deg, #FFFFFF 0%, #F4ECE3 100%)',
           textAlign: 'center',
         }}
       >
@@ -189,7 +189,7 @@ const PropertiesPage = () => {
             sx={{
               p: 3,
               mb: 3,
-              bgcolor: '#FAF8F5',
+              bgcolor: '#F7F7F7',
               borderRadius: 2,
               border: '1px solid rgba(0,0,0,0.06)',
             }}

@@ -99,7 +99,7 @@ const PropertyDetailPage = () => {
   return (
     <Box>
       {/* Image Gallery */}
-      <Box sx={{ bgcolor: '#f5f5f5' }}>
+      <Box sx={{ bgcolor: '#F7F7F7' }}>
         <Container maxWidth="lg" sx={{ py: 2 }}>
           <Grid container spacing={1} sx={{ borderRadius: 3, overflow: 'hidden' }}>
             <Grid item xs={12} md={7}>
@@ -257,7 +257,7 @@ const PropertyDetailPage = () => {
                 </Typography>
               ) : (
                 reviews.map((review) => (
-                  <Card key={review.id} sx={{ mb: 2, p: 2.5, bgcolor: '#FEFCF9' }}>
+                  <Card key={review.id} sx={{ mb: 2, p: 2.5, bgcolor: '#FFFFFF' }}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
                       <Typography variant="body2" sx={{ fontWeight: 700 }}>{review.guest_name}</Typography>
                       <Typography variant="caption" sx={{ color: 'text.secondary' }}>
@@ -282,7 +282,7 @@ const PropertyDetailPage = () => {
                 position: 'sticky',
                 top: 100,
                 p: 3,
-                border: '1px solid rgba(0,0,0,0.08)',
+                border: '1px solid #EAEAEA',
               }}
             >
               <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1, mb: 3 }}>

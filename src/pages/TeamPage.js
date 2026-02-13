@@ -36,7 +36,7 @@ const TeamPage = () => {
   return (
     <Box>
       {/* Hero */}
-      <Box sx={{ py: { xs: 6, md: 8 }, background: 'linear-gradient(135deg, #FFF8F3 0%, #F5E6D3 100%)', textAlign: 'center' }}>
+      <Box sx={{ py: { xs: 6, md: 8 }, background: 'linear-gradient(135deg, #FFFFFF 0%, #F4ECE3 100%)', textAlign: 'center' }}>
         <Container maxWidth="md">
           <Typography variant="h1" sx={{ mb: 2, fontSize: { xs: '2rem', md: '3rem' } }}>
             Meet the Team
@@ -81,7 +81,7 @@ const TeamPage = () => {
                       <CardMedia
                         component="img"
                         height={280}
-                        image={member.photo_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&size=400&background=FF6B35&color=fff&bold=true`}
+                        image={member.photo_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&size=400&background=C6A75E&color=fff&bold=true`}
                         alt={member.name}
                         className="team-photo"
                         sx={{ transition: 'transform 0.5s ease', objectFit: 'cover' }}

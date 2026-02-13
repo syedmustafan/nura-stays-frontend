@@ -56,7 +56,7 @@ const HomePage = () => {
           alignItems: 'center',
           position: 'relative',
           overflow: 'hidden',
-          background: 'linear-gradient(135deg, #FFF8F3 0%, #FFF0E6 50%, #F5E6D3 100%)',
+          background: 'linear-gradient(135deg, #FFFFFF 0%, #F7F7F7 50%, #F4ECE3 100%)',
         }}
       >
         {/* Decorative elements */}
@@ -68,7 +68,7 @@ const HomePage = () => {
             width: 400,
             height: 400,
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(255,107,53,0.08) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(198,167,94,0.08) 0%, transparent 70%)',
           }}
         />
         <Box
@@ -114,7 +114,8 @@ const HomePage = () => {
                 <Box
                   component="span"
                   sx={{
-                    background: 'linear-gradient(135deg, #FF6B35 0%, #D4AF37 100%)',
+                         background: 'linear-gradient(135deg, #C6A75E 0%, #A98A43 100%)'
+,
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                   }}
@@ -237,7 +238,7 @@ const HomePage = () => {
       </Box>
 
       {/* ─── Why Choose Nura Stays ─────────────────────────────── */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#FAF8F5' }}>
+      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#F7F7F7' }}>
         <Container maxWidth="lg">
           <SectionTitle
             title="Why Choose Nura Stays?"
@@ -274,7 +275,7 @@ const HomePage = () => {
       <Box
         sx={{
           py: { xs: 8, md: 10 },
-          background: 'linear-gradient(135deg, #FF6B35 0%, #F77F00 100%)',
+          background: 'linear-gradient(135deg, #1F1F1F 0%, #2A2A2A 100%)',
           color: '#fff',
         }}
       >
@@ -318,7 +319,7 @@ const HomePage = () => {
               { name: 'Priya S.', rating: 5, text: 'Our second booking with Nura Stays - once again they exceeded our expectations. Highly recommend!' },
             ].map((review, i) => (
               <Grid item xs={12} md={4} key={i}>
-                <Card className="card-animate-in" sx={{ p: 3, height: '100%', bgcolor: '#FEFCF9', border: '1px solid rgba(0,0,0,0.04)' }}>
+                <Card className="card-animate-in" sx={{ p: 3, height: '100%', bgcolor: '#FFFFFF', border: '1px solid rgba(0,0,0,0.04)' }}>
                   <Rating value={review.rating} readOnly size="small" sx={{ mb: 2 }} />
                   <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2, fontStyle: 'italic', lineHeight: 1.8 }}>
                     "{review.text}"
@@ -339,7 +340,7 @@ const HomePage = () => {
       </Box>
 
       {/* ─── Trust Badges ──────────────────────────────────────── */}
-      <Box sx={{ py: 6, bgcolor: '#FAF8F5' }}>
+      <Box sx={{ py: 6, bgcolor: '#F7F7F7' }}>
         <Container maxWidth="md">
           <Grid container spacing={3} justifyContent="center" alignItems="center">
             {[
@@ -365,7 +366,7 @@ const HomePage = () => {
         sx={{
           py: { xs: 8, md: 12 },
           textAlign: 'center',
-          background: 'linear-gradient(180deg, #FFFFFF 0%, #FFF8F3 100%)',
+          background: 'linear-gradient(180deg, #FFFFFF 0%, #F4ECE3 100%)',
         }}
       >
         <Container maxWidth="sm">

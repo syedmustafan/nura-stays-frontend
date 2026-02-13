@@ -47,7 +47,7 @@ const ContactPage = () => {
   return (
     <Box>
       {/* Hero */}
-      <Box sx={{ py: { xs: 6, md: 8 }, background: 'linear-gradient(135deg, #FFF8F3 0%, #F5E6D3 100%)', textAlign: 'center' }}>
+      <Box sx={{ py: { xs: 6, md: 8 }, background: 'linear-gradient(135deg, #FFFFFF 0%, #F4ECE3 100%)', textAlign: 'center' }}>
         <Container maxWidth="md">
           <Box className="content-animate-in">
             <Typography variant="h1" sx={{ mb: 2, fontSize: { xs: '2rem', md: '3rem' } }}>
@@ -147,7 +147,7 @@ const ContactPage = () => {
               Contact Information
             </Typography>
             {contactInfo.map((info, i) => (
-              <Card key={i} className="card-animate-in" sx={{ p: 2.5, mb: 2, display: 'flex', alignItems: 'center', gap: 2, bgcolor: '#FEFCF9' }}>
+              <Card key={i} className="card-animate-in" sx={{ p: 2.5, mb: 2, display: 'flex', alignItems: 'center', gap: 2, bgcolor: '#FFFFFF' }}>
                 <Box sx={{ color: 'primary.main' }}>{info.icon}</Box>
                 <Box>
                   <Typography variant="caption" sx={{ color: 'text.secondary' }}>
@@ -177,7 +177,7 @@ const ContactPage = () => {
               </Card>
             ))}
 
-            <Card sx={{ p: 3, mt: 3, textAlign: 'center', bgcolor: '#FEFCF9' }}>
+            <Card sx={{ p: 3, mt: 3, textAlign: 'center', bgcolor: '#F7F7F7' }}>
               <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>
                 Prefer WhatsApp?
               </Typography>

@@ -6,16 +6,16 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#FF6B35',
-      light: '#F77F00',
-      dark: '#E55A25',
+      main: '#C6A75E',
+      light: '#D4BC7E',
+      dark: '#A98A43',
       contrastText: '#FFFFFF',
     },
     secondary: {
-      main: '#D4AF37',
-      light: '#F5E6D3',
-      dark: '#B8962E',
-      contrastText: '#333333',
+      main: '#1F1F1F',
+      light: '#2A2A2A',
+      dark: '#000000',
+      contrastText: '#FFFFFF',
     },
     background: {
       default: '#FFFFFF',
@@ -24,9 +24,11 @@ const theme = createTheme({
       warmGray: '#FAF8F5',
     },
     text: {
-      primary: '#333333',
-      secondary: '#666666',
+      primary: '#1F1F1F',
+      secondary: '#777777',
       light: '#999999',
+            disabled: '#AAAAAA',
+
     },
     common: {
       white: '#FFFFFF',
@@ -104,37 +106,38 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 8,
-          padding: '10px 24px',
-          fontSize: '0.95rem',
+          borderRadius: 10,
+          textTransform: 'none',
           fontWeight: 600,
-          boxShadow: 'none',
-          '&:hover': {
-            boxShadow: '0 4px 12px rgba(255, 107, 53, 0.3)',
-          },
+          transition: 'all 0.2s ease',
         },
         containedPrimary: {
-          background: 'linear-gradient(135deg, #FF6B35 0%, #F77F00 100%)',
-          '&:hover': {
-            background: 'linear-gradient(135deg, #E55A25 0%, #D96E00 100%)',
-          },
+          backgroundColor: '#C6A75E',
+          color: '#fff',
+          '&:hover': { backgroundColor: '#A98A43', boxShadow: 'none' },
+          boxShadow: 'none',
         },
-        outlined: {
-          borderWidth: 2,
-          '&:hover': {
-            borderWidth: 2,
-          },
+        outlinedPrimary: {
+          borderColor: '#C6A75E',
+          color: '#C6A75E',
+          '&:hover': { backgroundColor: 'rgba(198,167,94,0.06)', borderColor: '#A98A43' },
+        },
+        outlinedSecondary: {
+          borderColor: '#1F1F1F',
+          color: '#1F1F1F',
+          '&:hover': { backgroundColor: '#1F1F1F', color: '#fff' },
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 16,
-          boxShadow: '0 2px 16px rgba(0,0,0,0.06)',
-          transition: 'all 0.3s ease',
+          borderRadius: 14,
+          border: '1px solid #EAEAEA',
+          boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
+          transition: 'box-shadow 0.2s ease, transform 0.2s ease',
           '&:hover': {
-            boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+            boxShadow: '0 4px 16px rgba(0,0,0,0.10)',
           },
         },
       },
@@ -152,9 +155,58 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           '& .MuiOutlinedInput-root': {
-            borderRadius: 8,
+            borderRadius: 10,
+            '& fieldset': { borderColor: '#E5E5E5' },
+            '&:hover fieldset': { borderColor: '#C6A75E' },
+            '&.Mui-focused fieldset': {
+              borderColor: '#C6A75E',
+              boxShadow: '0 0 0 2px rgba(198,167,94,0.15)',
+            },
           },
         },
+      },
+    },MuiAccordion: {
+      styleOverrides: {
+        root: {
+          borderRadius: '10px !important',
+          border: '1px solid #E5E5E5',
+          '&::before': { display: 'none' },
+          '&.Mui-expanded': {
+            backgroundColor: 'rgba(198,167,94,0.03)',
+          },
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        colorPrimary: {
+          backgroundColor: '#C6A75E',
+          color: '#fff',
+        },
+        outlinedPrimary: {
+          borderColor: '#C6A75E',
+          color: '#C6A75E',
+        },
+      },
+    },
+    MuiPagination: {
+      styleOverrides: {
+        root: {
+          '& .MuiPaginationItem-root': {
+            borderRadius: 8,
+            '&.Mui-selected': {
+              backgroundColor: '#C6A75E',
+              color: '#fff',
+              '&:hover': { backgroundColor: '#A98A43' },
+            },
+          },
+        },
+      },
+    },
+    MuiRating: {
+      styleOverrides: {
+        iconFilled: { color: '#C6A75E' },
+        iconEmpty: { color: '#E5E5E5' },
       },
     },
   },
