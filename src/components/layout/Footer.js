@@ -57,7 +57,7 @@ const Footer = () => {
                   key={i}
                   sx={{
                     color: 'rgba(255,255,255,0.6)',
-                    '&:hover': { color: '#FF6B35', bgcolor: 'rgba(255,107,53,0.1)' },
+                    '&:hover': { color: '#C6A75E', bgcolor: 'rgba(255,107,53,0.1)' },
                   }}
                 >
                   <Icon />
@@ -82,7 +82,7 @@ const Footer = () => {
                   textDecoration: 'none',
                   py: 0.5,
                   fontSize: '0.9rem',
-                  '&:hover': { color: '#FF6B35' },
+                  '&:hover': { color: '#C6A75E' },
                   transition: 'color 0.2s',
                 }}
               >
@@ -107,7 +107,7 @@ const Footer = () => {
                   textDecoration: 'none',
                   py: 0.5,
                   fontSize: '0.9rem',
-                  '&:hover': { color: '#FF6B35' },
+                  '&:hover': { color: '#C6A75E' },
                   transition: 'color 0.2s',
                 }}
               >
@@ -122,19 +122,19 @@ const Footer = () => {
               Get in Touch
             </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
-              <Email sx={{ fontSize: 18, color: '#FF6B35' }} />
+              <Email sx={{ fontSize: 18, color: '#C6A75E' }} />
               <MuiLink
                 href="mailto:info@nurastays.com"
-                sx={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none', fontSize: '0.9rem', '&:hover': { color: '#FF6B35' } }}
+                sx={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none', fontSize: '0.9rem', '&:hover': { color: '#C6A75E' } }}
               >
                 info@nurastays.com
               </MuiLink>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
-              <Phone sx={{ fontSize: 18, color: '#FF6B35' }} />
+              <Phone sx={{ fontSize: 18, color: '#C6A75E' }} />
               <MuiLink
                 href="tel:+447000000000"
-                sx={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none', fontSize: '0.9rem', '&:hover': { color: '#FF6B35' } }}
+                sx={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none', fontSize: '0.9rem', '&:hover': { color: '#C6A75E' } }}
               >
                 +44 700 000 0000
               </MuiLink>
