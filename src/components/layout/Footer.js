@@ -37,18 +37,17 @@ const Footer = () => {
         <Grid container spacing={4}>
           {/* Brand */}
           <Grid item xs={12} md={4}>
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: 800,
-                background: 'linear-gradient(135deg, #FF6B35 0%, #D4AF37 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                mb: 2,
-              }}
-            >
-              Nura Stays
-            </Typography>
+            <Box
+  component="img"
+  src="/nurastays.png"
+  alt="Nura Stays"
+  sx={{
+    height: 120,        // adjust if you want bigger/smaller
+    width: 'auto',
+    mb: 1,
+    objectFit: 'contain',
+  }}
+/>
             <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)', mb: 3, maxWidth: 300 }}>
               Your home away from home. Premium short-term accommodation with hotel-level comfort and the privacy of your own space.
             </Typography>

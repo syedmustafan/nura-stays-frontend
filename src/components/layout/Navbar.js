@@ -1,6 +1,6 @@
 /**
  * Main navigation bar component.
- * Uses CSS-based responsive display for reliable mobile/desktop detection.
+ * Fully responsive using MUI breakpoints.
  */
 import React, { useState, useEffect } from 'react';
 import {
@@ -48,7 +48,13 @@ const Navbar = () => {
         }}
       >
         <Container maxWidth="xl">
-          <Toolbar sx={{ justifyContent: 'space-between', px: { xs: 0 }, minHeight: { xs: 64, md: 72 } }}>
+          <Toolbar
+            sx={{
+              justifyContent: 'space-between',
+              px: { xs: 1, sm: 2 },
+              minHeight: { xs: 60, md: 72 },
+            }}
+          >
             {/* Logo */}
             <Box
               component={Link}
@@ -57,25 +63,28 @@ const Navbar = () => {
                 textDecoration: 'none',
                 display: 'flex',
                 alignItems: 'center',
-                gap: 1,
               }}
             >
               <Box
+                component="img"
+                src="/nurastays.png"
+                alt="Nura Stays"
                 sx={{
-                  fontSize: { xs: '1.5rem', md: '1.75rem' },
-                  fontWeight: 800,
-                  background: 'linear-gradient(135deg, #FF6B35 0%, #D4AF37 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  letterSpacing: '-0.02em',
+                  height: { xs: 40, md: 52 },
+                  width: 'auto',
+                  objectFit: 'contain',
                 }}
-              >
-                Nura Stays
-              </Box>
+              />
             </Box>
 
-            {/* Desktop Nav - uses CSS class for reliable responsive display */}
-            <Box className="desktop-nav" sx={{ alignItems: 'center', gap: 1 }}>
+            {/* Desktop Nav */}
+            <Box
+              sx={{
+                display: { xs: 'none', md: 'flex' },
+                alignItems: 'center',
+                gap: 1,
+              }}
+            >
               {navLinks.map((link) => (
                 <Button
                   key={link.path}
@@ -111,6 +120,7 @@ const Navbar = () => {
                   {link.label}
                 </Button>
               ))}
+
               <Button
                 component={Link}
                 to="/properties"
@@ -122,11 +132,13 @@ const Navbar = () => {
               </Button>
             </Box>
 
-            {/* Mobile Menu Button - uses CSS class for reliable responsive display */}
+            {/* Mobile Menu Button */}
             <IconButton
-              className="mobile-menu-btn"
               onClick={() => setMobileOpen(true)}
-              sx={{ color: 'text.primary' }}
+              sx={{
+                color: 'text.primary',
+                display: { xs: 'flex', md: 'none' },
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -143,14 +155,27 @@ const Navbar = () => {
           sx: { width: '80%', maxWidth: 350, bgcolor: '#fff', pt: 2 },
         }}
       >
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: 2, mb: 2 }}>
-          <Box sx={{ fontSize: '1.5rem', fontWeight: 800, color: 'primary.main' }}>
-            Nura Stays
-          </Box>
+        {/* Drawer Header */}
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            px: 2,
+            mb: 2,
+          }}
+        >
+          <Box
+            component="img"
+            src="/nurastays.png"
+            alt="Nura Stays"
+            sx={{ height: 36 }}
+          />
           <IconButton onClick={() => setMobileOpen(false)}>
             <CloseIcon />
           </IconButton>
         </Box>
+
         <List>
           {navLinks.map((link) => (
             <ListItem key={link.path} disablePadding>
@@ -170,6 +195,7 @@ const Navbar = () => {
               </ListItemButton>
             </ListItem>
           ))}
+
           <ListItem sx={{ px: 3, mt: 2 }}>
             <Button
               component={Link}
@@ -186,7 +212,7 @@ const Navbar = () => {
       </Drawer>
 
       {/* Toolbar spacer */}
-      <Toolbar sx={{ minHeight: { xs: 64, md: 72 } }} />
+      <Toolbar sx={{ minHeight: { xs: 60, md: 72 } }} />
     </>
   );
 };
