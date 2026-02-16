@@ -24,6 +24,9 @@ const PropertyDetailPage = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const [checkIn, setCheckIn] = useState('');
+const [checkOut, setCheckOut] = useState('');
+const [guests, setGuests] = useState(1);
 
   useEffect(() => {
     const loadProperty = async () => {
@@ -61,12 +64,18 @@ const PropertyDetailPage = () => {
     ? property.images.map((img) => img.image_url || img.image)
     : placeholderImages;
 
-  const getWhatsAppLink = () => {
-    const message = encodeURIComponent(
-      `Hi, I'm interested in booking ${property?.name} at ${property?.location}. Can you provide more information?`
-    );
-    return `https://wa.me/447000000000?text=${message}`;
-  };
+const getWhatsAppLink = () => {
+  const message = encodeURIComponent(
+`Hi, I'm interested in booking ${property?.name}.
+Location: ${property?.location}
+Check-in: ${checkIn || 'Not selected'}
+Check-out: ${checkOut || 'Not selected'}
+Guests: ${guests}
+
+Can you confirm availability and total price?`
+  );
+  return `https://wa.me/447000000000?text=${message}`;
+};
 
   if (loading) {
     return (
@@ -292,28 +301,35 @@ const PropertyDetailPage = () => {
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>/ night</Typography>
               </Box>
 
-              <TextField
-                fullWidth
-                label="Check-in"
-                type="date"
-                InputLabelProps={{ shrink: true }}
-                sx={{ mb: 2 }}
-              />
-              <TextField
-                fullWidth
-                label="Check-out"
-                type="date"
-                InputLabelProps={{ shrink: true }}
-                sx={{ mb: 2 }}
-              />
-              <TextField
-                fullWidth
-                label="Guests"
-                type="number"
-                defaultValue={1}
-                inputProps={{ min: 1, max: property.max_guests }}
-                sx={{ mb: 3 }}
-              />
+<TextField
+  fullWidth
+  label="Check-in"
+  type="date"
+  value={checkIn}
+  onChange={(e) => setCheckIn(e.target.value)}
+  InputLabelProps={{ shrink: true }}
+  sx={{ mb: 2 }}
+/>
+
+<TextField
+  fullWidth
+  label="Check-out"
+  type="date"
+  value={checkOut}
+  onChange={(e) => setCheckOut(e.target.value)}
+  InputLabelProps={{ shrink: true }}
+  sx={{ mb: 2 }}
+/>
+
+<TextField
+  fullWidth
+  label="Guests"
+  type="number"
+  value={guests}
+  onChange={(e) => setGuests(e.target.value)}
+  inputProps={{ min: 1, max: property.max_guests }}
+  sx={{ mb: 3 }}
+/>
 
               <Button
                 fullWidth
@@ -337,8 +353,11 @@ const PropertyDetailPage = () => {
                 variant="outlined"
                 size="large"
                 component="a"
-                href={`mailto:info@nurastays.com?subject=Enquiry: ${property.name}&body=Hi, I'd like to enquire about ${property.name} at ${property.location}.`}
-                sx={{ py: 1.5 }}
+href={`mailto:info@nurastays.com?subject=Enquiry: ${property.name}&body=Hi, I'd like to enquire about ${property.name} at ${property.location}.
+Check-in: ${checkIn || 'Not selected'}
+Check-out: ${checkOut || 'Not selected'}
+Guests: ${guests}.
+Please confirm availability and total price.`}                sx={{ py: 1.5 }}
               >
                 ✉️ Enquire via Email
               </Button>
