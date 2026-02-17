@@ -97,6 +97,12 @@ export const adminReviewAPI = {
   delete: (id) => api.delete(`/admin/reviews/${id}/`),
 };
 
+export const adminLeadsAPI = {
+  getAll: (params) => api.get('/admin/leads/', { params }),
+  getById: (id) => api.get(`/admin/leads/${id}/`),
+  update: (id, data) => api.patch(`/admin/leads/${id}/`, data),
+};
+
 export const adminTeamAPI = {
   getAll: () => api.get('/admin/team/'),
   create: (data) =>

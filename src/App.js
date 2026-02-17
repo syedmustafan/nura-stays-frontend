@@ -29,6 +29,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminProperties from './pages/admin/AdminProperties';
 import AdminReviews from './pages/admin/AdminReviews';
 import AdminTeam from './pages/admin/AdminTeam';
+import AdminLeads from './pages/admin/AdminLeads';
 
 // Smooth scrolling with Lenis
 import Lenis from 'lenis';
@@ -87,6 +88,7 @@ function App() {
               <Route path="dashboard" element={<AdminDashboard />} />
               <Route path="properties" element={<AdminProperties />} />
               <Route path="reviews" element={<AdminReviews />} />
+              <Route path="leads" element={<AdminLeads />} />
               <Route path="team" element={<AdminTeam />} />
             </Route>
           </Routes>

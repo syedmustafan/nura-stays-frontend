@@ -8,7 +8,7 @@ import {
   useTheme, Divider, Button,
 } from '@mui/material';
 import {
-  Dashboard, Home, RateReview, People, Menu as MenuIcon,
+  Dashboard, Home, RateReview, People, ContactMail, Menu as MenuIcon,
   Logout, ChevronLeft,
 } from '@mui/icons-material';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
@@ -20,6 +20,7 @@ const menuItems = [
   { label: 'Dashboard', path: '/admin/dashboard', icon: <Dashboard /> },
   { label: 'Properties', path: '/admin/properties', icon: <Home /> },
   { label: 'Reviews', path: '/admin/reviews', icon: <RateReview /> },
+  { label: 'Leads', path: '/admin/leads', icon: <ContactMail /> },
   { label: 'Team', path: '/admin/team', icon: <People /> },
 ];
 
