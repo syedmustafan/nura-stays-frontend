@@ -188,7 +188,7 @@ const HomePage = () => {
               >
                 <Box
                   component="img"
-                  src="/nurastays.png"
+                  src="/landingpage.jpg"
                   alt="Nura Stays"
                   sx={{
                     width: '100%',

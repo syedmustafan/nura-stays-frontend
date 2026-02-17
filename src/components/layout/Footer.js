@@ -121,7 +121,7 @@ const Footer = () => {
             <Typography variant="h6" sx={{ fontWeight: 700, mb: 2, fontSize: '0.95rem' }}>
               Get in Touch
             </Typography>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
+            {/* <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
               <Email sx={{ fontSize: 18, color: '#C6A75E' }} />
               <MuiLink
                 href="mailto:info@nurastays.com"
@@ -129,7 +129,7 @@ const Footer = () => {
               >
                 info@nurastays.com
               </MuiLink>
-            </Box>
+            </Box> */}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
               <Phone sx={{ fontSize: 18, color: '#C6A75E' }} />
               <MuiLink

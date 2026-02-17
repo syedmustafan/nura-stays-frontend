@@ -91,7 +91,7 @@ const AboutPage = () => {
               <Box
                 className="card-animate-in"
                 component="img"
-                src="/nurastays.png"
+                src="/about1.jpg"
                 alt="Nura Stays"
                 sx={{
                   width: '100%',
@@ -139,7 +139,7 @@ const AboutPage = () => {
               <Box
                 className="card-animate-in"
                 component="img"
-                src="/nurastays.png"
+                src="about2.jpg"
                 alt="Nura Stays"
                 sx={{
                   width: '100%',

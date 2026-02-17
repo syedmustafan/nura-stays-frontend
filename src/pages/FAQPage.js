@@ -63,7 +63,7 @@ const faqData = {
   'Cancellations': [
     {
       q: 'What is the cancellation policy?',
-      a: 'Each property has its own cancellation policy, clearly stated on the property page. Generally, free cancellation is available up to 48-72 hours before check-in. Please review the specific policy before booking.',
+      a: 'Cancellations must be made at least 1 month before the scheduled check-in date to receive only a 50% refund. Cancellations made within 1 month of check-in are non-refundable.',
     },
     {
       q: 'Can I modify my booking?',

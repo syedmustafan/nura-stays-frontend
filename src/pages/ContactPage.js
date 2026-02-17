@@ -39,7 +39,7 @@ const ContactPage = () => {
   };
 
   const contactInfo = [
-    { icon: <Email />, label: 'Email', value: 'info@nurastays.com', href: 'mailto:info@nurastays.com' },
+    // { icon: <Email />, label: 'Email', value: 'info@nurastays.com', href: 'mailto:info@nurastays.com' },
     { icon: <Phone />, label: 'Phone', value: '+44 700 000 0000', href: 'tel:+447000000000' },
     { icon: <LocationOn />, label: 'Based in', value: 'United Kingdom', href: null },
   ];
