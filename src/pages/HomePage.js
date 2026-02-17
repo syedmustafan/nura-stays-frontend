@@ -188,8 +188,8 @@ const HomePage = () => {
               >
                 <Box
                   component="img"
-                  src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&h=500&fit=crop"
-                  alt="Luxury Apartment Interior"
+                  src="/nurastays.png"
+                  alt="Nura Stays"
                   sx={{
                     width: '100%',
                     height: 450,

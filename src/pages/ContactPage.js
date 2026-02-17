@@ -26,12 +26,12 @@ const ContactPage = () => {
     setSubmitStatus(null);
     try {
       await contactAPI.submit(data);
-      setSubmitStatus({ type: 'success', message: 'Thank you for your message! We will get back to you soon.' });
+      setSubmitStatus({ type: 'success', message: 'Thank you! Your message has been received. We will get back to you soon.' });
       reset();
     } catch (err) {
       setSubmitStatus({
         type: 'error',
-        message: 'Something went wrong. Please try again or contact us directly.',
+        message: 'Something went wrong. Please try again.',
       });
     } finally {
       setSubmitting(false);

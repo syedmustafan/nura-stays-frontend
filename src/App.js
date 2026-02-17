@@ -2,7 +2,7 @@
  * Main App component with routing configuration.
  */
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from './theme/theme';
 import { AuthProvider } from './context/AuthContext';
@@ -83,6 +83,7 @@ function App() {
                 </ProtectedRoute>
               }
             >
+              <Route index element={<Navigate to="/admin/dashboard" replace />} />
               <Route path="dashboard" element={<AdminDashboard />} />
               <Route path="properties" element={<AdminProperties />} />
               <Route path="reviews" element={<AdminReviews />} />

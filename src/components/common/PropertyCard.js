@@ -1,16 +1,36 @@
 /**
  * Property card component used in grids/lists.
+ * Uses only API image URL; shows "No Image Available" when missing or on load error.
  */
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Card, CardMedia, CardContent, Box, Typography, Chip, Rating,
 } from '@mui/material';
-import { BedOutlined, BathtubOutlined, PeopleOutlined, LocationOn } from '@mui/icons-material';
+import { BedOutlined, BathtubOutlined, PeopleOutlined, LocationOn, ImageOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
-const PropertyCard = ({ property, index = 0 }) => {
+const NoImagePlaceholder = ({ height = 220 }) => (
+  <Box
+    sx={{
+      height,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      bgcolor: '#f0f0f0',
+      color: 'text.secondary',
+    }}
+  >
+    <Box sx={{ textAlign: 'center' }}>
+      <ImageOutlined sx={{ fontSize: 48, mb: 0.5, opacity: 0.5 }} />
+      <Typography variant="caption" display="block">No Image Available</Typography>
+    </Box>
+  </Box>
+);
 
-  const placeholderImage = `https://picsum.photos/seed/${property.slug || property.id}/600/400`;
+const PropertyCard = ({ property, index = 0 }) => {
+  const imageUrl = property.primary_image || null;
+  const [imageError, setImageError] = useState(false);
+  const showImage = imageUrl && !imageError;
 
   return (
     <Card
@@ -31,17 +51,22 @@ const PropertyCard = ({ property, index = 0 }) => {
       }}
     >
       <Box sx={{ position: 'relative', overflow: 'hidden' }}>
-        <CardMedia
-          component="img"
-          height="220"
-          image={property.primary_image || placeholderImage}
-          alt={property.name}
-          className="property-image"
-          sx={{
-            transition: 'transform 0.5s ease',
-            objectFit: 'cover',
-          }}
-        />
+        {showImage ? (
+          <CardMedia
+            component="img"
+            height="220"
+            image={imageUrl}
+            alt={property.name}
+            className="property-image"
+            onError={() => setImageError(true)}
+            sx={{
+              transition: 'transform 0.5s ease',
+              objectFit: 'cover',
+            }}
+          />
+        ) : (
+          <NoImagePlaceholder height={220} />
+        )}
         {property.is_featured && (
           <Chip
             label="Featured"

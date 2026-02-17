@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import {
   LocationOn, BedOutlined, BathtubOutlined, PeopleOutlined,
-  Close, ArrowBack, ArrowForward, CheckCircle,
+  Close, ArrowBack, ArrowForward, CheckCircle, ImageOutlined,
 } from '@mui/icons-material';
 import { useParams, Link } from 'react-router-dom';
 import { propertyAPI, reviewAPI } from '../services/api';
@@ -56,13 +56,12 @@ const [guests, setGuests] = useState(1);
   }, [slug]);
 
 
-  const placeholderImages = Array.from({ length: 5 }, (_, i) =>
-    `https://picsum.photos/seed/${slug}-${i}/800/600`
-  );
-
-  const images = property?.images?.length > 0
-    ? property.images.map((img) => img.image_url || img.image)
-    : placeholderImages;
+  // Use only API images; no external placeholders
+  const images =
+    property?.images?.length > 0
+      ? property.images.map((img) => img.image_url || img.image)
+      : [];
+  const hasImages = images.length > 0;
 
 const getWhatsAppLink = () => {
   const message = encodeURIComponent(
@@ -107,50 +106,74 @@ Can you confirm availability and total price?`
 
   return (
     <Box>
-      {/* Image Gallery */}
+      {/* Image Gallery - only API images; "No Image Available" when empty */}
       <Box sx={{ bgcolor: '#F7F7F7' }}>
         <Container maxWidth="lg" sx={{ py: 2 }}>
           <Grid container spacing={1} sx={{ borderRadius: 3, overflow: 'hidden' }}>
-            <Grid item xs={12} md={7}>
-              <Box
-                component="img"
-                src={images[0]}
-                alt={property.name}
-                onClick={() => { setLightboxIndex(0); setLightboxOpen(true); }}
-                sx={{
-                  width: '100%',
-                  height: { xs: 300, md: 450 },
-                  objectFit: 'cover',
-                  cursor: 'pointer',
-                  borderRadius: { xs: 2, md: '12px 0 0 12px' },
-                  transition: 'opacity 0.3s',
-                  '&:hover': { opacity: 0.9 },
-                }}
-              />
-            </Grid>
-            <Grid item xs={12} md={5} sx={{ display: { xs: 'none', md: 'block' } }}>
-              <Grid container spacing={1}>
-                {images.slice(1, 5).map((img, i) => (
-                  <Grid item xs={6} key={i}>
-                    <Box
-                      component="img"
-                      src={img}
-                      alt={`${property.name} ${i + 2}`}
-                      onClick={() => { setLightboxIndex(i + 1); setLightboxOpen(true); }}
-                      sx={{
-                        width: '100%',
-                        height: 220,
-                        objectFit: 'cover',
-                        cursor: 'pointer',
-                        borderRadius: i === 1 ? '0 12px 0 0' : i === 3 ? '0 0 12px 0' : 0,
-                        transition: 'opacity 0.3s',
-                        '&:hover': { opacity: 0.9 },
-                      }}
-                    />
+            {hasImages ? (
+              <>
+                <Grid item xs={12} md={7}>
+                  <Box
+                    component="img"
+                    src={images[0]}
+                    alt={property.name}
+                    onClick={() => { setLightboxIndex(0); setLightboxOpen(true); }}
+                    sx={{
+                      width: '100%',
+                      height: { xs: 300, md: 450 },
+                      objectFit: 'cover',
+                      cursor: 'pointer',
+                      borderRadius: { xs: 2, md: '12px 0 0 12px' },
+                      transition: 'opacity 0.3s',
+                      '&:hover': { opacity: 0.9 },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={5} sx={{ display: { xs: 'none', md: 'block' } }}>
+                  <Grid container spacing={1}>
+                    {images.slice(1, 5).map((img, i) => (
+                      <Grid item xs={6} key={i}>
+                        <Box
+                          component="img"
+                          src={img}
+                          alt={`${property.name} ${i + 2}`}
+                          onClick={() => { setLightboxIndex(i + 1); setLightboxOpen(true); }}
+                          sx={{
+                            width: '100%',
+                            height: 220,
+                            objectFit: 'cover',
+                            cursor: 'pointer',
+                            borderRadius: i === 1 ? '0 12px 0 0' : i === 3 ? '0 0 12px 0' : 0,
+                            transition: 'opacity 0.3s',
+                            '&:hover': { opacity: 0.9 },
+                          }}
+                        />
+                      </Grid>
+                    ))}
                   </Grid>
-                ))}
+                </Grid>
+              </>
+            ) : (
+              <Grid item xs={12}>
+                <Box
+                  sx={{
+                    width: '100%',
+                    height: { xs: 300, md: 400 },
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    bgcolor: '#e8e8e8',
+                    color: 'text.secondary',
+                    borderRadius: 2,
+                  }}
+                >
+                  <Box sx={{ textAlign: 'center' }}>
+                    <ImageOutlined sx={{ fontSize: 64, mb: 1, opacity: 0.5 }} />
+                    <Typography variant="body1">No Image Available</Typography>
+                  </Box>
+                </Box>
               </Grid>
-            </Grid>
+            )}
           </Grid>
         </Container>
       </Box>
@@ -387,44 +410,46 @@ Please confirm availability and total price.`}                sx={{ py: 1.5 }}
         )}
       </Container>
 
-      {/* Lightbox */}
-      <Dialog
-        open={lightboxOpen}
-        onClose={() => setLightboxOpen(false)}
-        maxWidth="lg"
-        fullWidth
-        PaperProps={{ sx: { bgcolor: 'rgba(0,0,0,0.95)', borderRadius: 2, position: 'relative' } }}
-      >
-        <IconButton
-          onClick={() => setLightboxOpen(false)}
-          sx={{ position: 'absolute', top: 8, right: 8, color: '#fff', zIndex: 1 }}
+      {/* Lightbox - only when we have images */}
+      {hasImages && (
+        <Dialog
+          open={lightboxOpen}
+          onClose={() => setLightboxOpen(false)}
+          maxWidth="lg"
+          fullWidth
+          PaperProps={{ sx: { bgcolor: 'rgba(0,0,0,0.95)', borderRadius: 2, position: 'relative' } }}
         >
-          <Close />
-        </IconButton>
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', p: 2, minHeight: 500 }}>
           <IconButton
-            onClick={() => setLightboxIndex((prev) => (prev - 1 + images.length) % images.length)}
-            sx={{ color: '#fff', mr: 2 }}
+            onClick={() => setLightboxOpen(false)}
+            sx={{ position: 'absolute', top: 8, right: 8, color: '#fff', zIndex: 1 }}
           >
-            <ArrowBack />
+            <Close />
           </IconButton>
-          <Box
-            component="img"
-            src={images[lightboxIndex]}
-            alt={`${property.name} ${lightboxIndex + 1}`}
-            sx={{ maxHeight: '70vh', maxWidth: '80%', objectFit: 'contain', borderRadius: 2 }}
-          />
-          <IconButton
-            onClick={() => setLightboxIndex((prev) => (prev + 1) % images.length)}
-            sx={{ color: '#fff', ml: 2 }}
-          >
-            <ArrowForward />
-          </IconButton>
-        </Box>
-        <Typography sx={{ color: '#fff', textAlign: 'center', pb: 2, opacity: 0.7 }}>
-          {lightboxIndex + 1} / {images.length}
-        </Typography>
-      </Dialog>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', p: 2, minHeight: 500 }}>
+            <IconButton
+              onClick={() => setLightboxIndex((prev) => (prev - 1 + images.length) % images.length)}
+              sx={{ color: '#fff', mr: 2 }}
+            >
+              <ArrowBack />
+            </IconButton>
+            <Box
+              component="img"
+              src={images[lightboxIndex]}
+              alt={`${property.name} ${lightboxIndex + 1}`}
+              sx={{ maxHeight: '70vh', maxWidth: '80%', objectFit: 'contain', borderRadius: 2 }}
+            />
+            <IconButton
+              onClick={() => setLightboxIndex((prev) => (prev + 1) % images.length)}
+              sx={{ color: '#fff', ml: 2 }}
+            >
+              <ArrowForward />
+            </IconButton>
+          </Box>
+          <Typography sx={{ color: '#fff', textAlign: 'center', pb: 2, opacity: 0.7 }}>
+            {lightboxIndex + 1} / {images.length}
+          </Typography>
+        </Dialog>
+      )}
     </Box>
   );
 };

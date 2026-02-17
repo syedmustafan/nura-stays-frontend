@@ -91,8 +91,8 @@ const AboutPage = () => {
               <Box
                 className="card-animate-in"
                 component="img"
-                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=500&fit=crop"
-                alt="Beautiful Property"
+                src="/nurastays.png"
+                alt="Nura Stays"
                 sx={{
                   width: '100%',
                   height: 450,
@@ -139,8 +139,8 @@ const AboutPage = () => {
               <Box
                 className="card-animate-in"
                 component="img"
-                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=500&fit=crop"
-                alt="Interior Design"
+                src="/nurastays.png"
+                alt="Nura Stays"
                 sx={{
                   width: '100%',
                   height: 400,
